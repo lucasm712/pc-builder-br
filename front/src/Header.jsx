@@ -2,10 +2,9 @@ function Header() {
   return(
     <header> 
         <nav>
-    <ul>
-      <h1>PC BUILDER BR</h1>
-      
-    </ul> 
+    <h1>
+      <a href="/">PC BUILDER BR</a>
+    </h1>
     </nav> 
     </header>
   )

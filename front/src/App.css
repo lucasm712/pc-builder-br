@@ -169,3 +169,89 @@ ul li:hover {
   cursor: pointer;
 } 
 
+.resumo-final {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.resumo-final h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.resumo-final-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  margin-bottom: 20px; 
+  
+}
+
+.resumo-final p,
+.resumo-final ul {
+  margin: 0;
+}
+
+.resumo-final ul {
+   list-style: none;
+  padding-left: 0;
+  margin-top: 4px;
+  border: none; 
+  align-items: center;
+}
+
+.resumo-final hr {
+  border: none;
+  padding: 2px 0;
+  display: block;
+}
+
+.resumo-final-preco {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 16px 0 24px; 
+
+}
+
+.resumo-final button {
+  display: block;
+  margin: 10px;
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: none;
+  background-color: #6d7c7e;
+  color: white;
+  cursor: pointer; 
+  
+}
+.resumo-final button:hover { 
+background-color: #06d9f5;
+}
+.recibo {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.recibo-linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.recibo-linha span:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.recibo-linha span:last-child {
+  text-align: right;
+}  
+
