@@ -38,24 +38,61 @@ O foco do projeto é tanto o resultado final quanto o processo: modelagem de ban
 - [x] Seed de banco de dados com dados reais de mercado (CPUs Intel/AMD, placas-mãe por socket/chipset, RAM DDR4/DDR5, GPUs, SSDs SATA/NVMe)
 
 ### Em andamento
-- [ ] Validação de compatibilidade de SSD (tipo de conexão x slots disponíveis na placa-mãe)
-- [ ] Cálculo de consumo total (TDP de CPU + GPU) x wattage da fonte selecionada
-- [ ] Resumo final da build com preço total somado
-- [ ] Estilização completa da interface (CSS)
+- [ ] Expandir catálogo de peças (mais modelos, mais marcas) 
+- [ ] Atualizar e manter preços sincronizados com o mercado
+- [x] Cálculo de consumo total (TDP de CPU + GPU) x wattage da fonte selecionada
+- [x] Resumo final da build com preço total somado
+- [x] Estilização completa da interface (CSS)
 
 ### Planejado
-- [ ] Expandir catálogo de peças (mais modelos, mais marcas)
-- [ ] Atualizar e manter preços sincronizados com o mercado
 - [ ] Comparação de preços entre lojas (Kabum, Pichau, Terabyte, Amazon)
-
+- [ ] seção de pecas com pesquisa e filtragem
 ---
+
+
 
 ## Como rodar localmente
 
-> Em breve — o projeto ainda está em ajustes na estrutura de pastas e configuração.
-> Stack: Node.js + Express + Prisma (back-end) e React/Vite (front-end).
+**Pré-requisitos:** Node.js 20+ e uma instância PostgreSQL (ex: [Neon](https://neon.tech), free tier gratuito).
 
----
+### 1. Clone o repositório
+```bash
+git clone https://github.com/lucasm712/pc-builder-br
+cd pc-builder-br
+```
+
+### 2. Backend (raiz do projeto)
+```bash
+npm install
+cp .env.example .env
+```
+
+Edite o `.env` e substitua pela sua connection string do PostgreSQL:
+```
+DATABASE_URL="postgresql://usuario:senha@host:5432/nome_do_banco"
+```
+
+```bash
+npx prisma migrate dev
+npx prisma db seed
+```
+> O `db seed` popula o banco com dados reais de hardware (CPUs, placas-mãe, GPUs, etc.) — sem ele, as listas do app aparecem vazias.
+
+```bash
+node server.js
+```
+ API rodando em `http://localhost:3000`
+
+### 3. Frontend
+Em outro terminal:
+```bash
+cd front
+npm install
+npm run dev
+```
+ Aplicação rodando em `http://localhost:5173`
+
+> Backend e frontend precisam rodar ao mesmo tempo, em terminais separados.
 
 ## Estrutura do banco de dados
 
