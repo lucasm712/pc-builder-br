@@ -42,11 +42,13 @@ O foco do projeto é tanto o resultado final quanto o processo: modelagem de ban
 - [ ] Atualizar e manter preços sincronizados com o mercado
 - [x] Cálculo de consumo total (TDP de CPU + GPU) x wattage da fonte selecionada
 - [x] Resumo final da build com preço total somado
-- [x] Estilização completa da interface (CSS)
+- [x] Estilização completa da interface (CSS) 
+- [ ] seção de pecas com pesquisa e filtragem 
+- [ ] opção de filtragem de resultado 
 
 ### Planejado
 - [ ] Comparação de preços entre lojas (Kabum, Pichau, Terabyte, Amazon)
-- [ ] seção de pecas com pesquisa e filtragem
+
 ---
 
 

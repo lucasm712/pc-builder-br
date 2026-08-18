@@ -10,6 +10,8 @@ import { compatibilidadeCpuMb, consumoTotal, psuSuficiente, compatibilidadeRamMb
 import RamList from './RamList.jsx'
 import SsdsList from './SsdsList.jsx'
 import PsuList from './PsuLimit.jsx'
+import { verificarIncompatibilidades } from './compatibilidade.js';
+
 function App() {
   const [mostrarLista, setMostrarLista] = useState(false);
   const [cpuSelecionada, setCpuSelecionada] = useState(null);
@@ -292,39 +294,62 @@ const removerSsd = (ssd) => {
         </div>
         </>
       )}
- {etapa === 'final' && (
-  <div className="resumo-final">
-    <h2>Resumo da sua Build</h2>
+ {etapa === 'final' && (() => {
+  const incompatibilidades = verificarIncompatibilidades({
+    cpu: cpuSelecionada,
+    motherboard: placaSelecionada,
+    ramsSelecionadas,
+    gpu: gpuSelecionada,
+    psu: psusSelecionada
+  });
 
-    <div className="recibo">
-      <div className="recibo-linha"><span>CPU</span><span>{cpuSelecionada?.nome}</span><span>R${cpuSelecionada.preco}</span></div>
-      <div className="recibo-linha"><span>Placa-mãe</span><span>{placaSelecionada?.nome}</span><span>R${placaSelecionada?.preco}</span></div>
-      <div className="recibo-linha"><span>GPU</span><span>{gpuSelecionada?.nome}</span><span>R${gpuSelecionada?.preco}</span></div>
+  return (
+    <div className="resumo-final">
+      <h2>Resumo da sua Build</h2>
 
-      {ramsSelecionadas.map((item) => (
-        <div className="recibo-linha" key={item.ram.id}>
-          <span>RAM ({item.quantidade}x)</span><span>{item.ram.nome}</span><span>R${item.ram.preco}</span>
+      {incompatibilidades.length > 0 && (
+        <div className="alerta-incompatibilidade">
+          <strong>⚠ {incompatibilidades.length} incompatibilidade(s) detectada(s)</strong>
+          <ul>
+            {incompatibilidades.map((msg, i) => <li key={i}>{msg}</li>)}
+          </ul>
         </div>
-      ))}
+      )}
 
-      {ssdsSelecionados.map((item) => (
-        <div className="recibo-linha" key={item.ssds.id}>
-          <span>SSD ({item.quantidade}x)</span><span>{item.ssds.nome}</span><span>R${item.ssds.preco}</span>
-        </div>
-      ))}
+      <div className="recibo">
+        <div className="recibo-linha"><span>CPU</span><span>{cpuSelecionada?.nome}</span><span>R${cpuSelecionada.preco}</span></div>
+        <div className="recibo-linha"><span>Placa-mãe</span><span>{placaSelecionada?.nome}</span><span>R${placaSelecionada?.preco}</span></div>
+        <div className="recibo-linha"><span>GPU</span><span>{gpuSelecionada?.nome}</span><span>R${gpuSelecionada?.preco}</span></div>
 
-      <div className="recibo-linha"><span>Fonte</span><span>{psusSelecionada?.nome}</span><span>R${psusSelecionada?.preco}</span></div>
+        {ramsSelecionadas.map((item) => (
+          <div className="recibo-linha" key={item.ram.id}>
+            <span>RAM ({item.quantidade}x)</span><span>{item.ram.nome}</span><span>R${item.ram.preco}</span>
+          </div>
+        ))}
+
+        {ssdsSelecionados.map((item) => (
+          <div className="recibo-linha" key={item.ssds.id}>
+            <span>SSD ({item.quantidade}x)</span><span>{item.ssds.nome}</span><span>R${item.ssds.preco}</span>
+          </div>
+        ))}
+
+        <div className="recibo-linha"><span>Fonte</span><span>{psusSelecionada?.nome}</span><span>R${psusSelecionada?.preco}</span></div>
+      </div>
+
+      <hr />
+
+      <p className="resumo-final-preco">Preço total: R$ {total.toFixed(2)}</p>
+
+      <button onClick={() => setEtapa('psu')}>Editar</button>
+      <button 
+        className={incompatibilidades.length > 0 ? "btn-baixar-alerta" : ""}
+        onClick={baixarResumo}
+      >
+        {incompatibilidades.length > 0 ? "Baixar mesmo assim" : "Baixar resumo"}
+      </button>
     </div>
-
-    <hr />
-
-    
-    <p className="resumo-final-preco">Preço total: R$ {total.toFixed(2)}</p>
-
-    <button onClick={() => setEtapa('psu')}>Editar</button>
-    <button onClick={baixarResumo}>Baixar resumo</button>
-  </div>
-)}
+  );
+})()}
 
 
    </main>

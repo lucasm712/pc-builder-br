@@ -1,16 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&display=swap');
+
+
+
+
+
 
 body {
-background-color: #faf8f8;
+font-family: "Bebas Neue", sans-serif;
+ background-color: #0A0E14; 
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 
-font-family: 'Old Standard TT', serif;
-} 
+
+}
+
+.hero {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  
+  background-color: transparent;
+  padding: 100px 20px;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 700px;
+  max-width: 90vw;
+  height: 100%;
+  
+ 
+  background-size: cover;
+  background-position: center;
+  
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: 
+    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-composite: intersect;
+  
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  
+  font-weight: bold;
+  font-size: 32px;
+  max-width: 700px;
+  margin: 0 auto; 
+  
+}
+
+.montarpc-wrapper {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 0 20px;   
+  align-items: center;
+ 
+}
+
+.montarpc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left; 
+  margin-top: 100px; 
+  margin-left: 10px;
+}
+
+.montarpc-item h3 {
+  font-size: 38px;
+  margin-bottom: 8px; 
+  color:rgb(240, 144, 24);
+  text-align: center;
+}
+
+.montarpc-item p {
+  font-size: 24px;
+  color: #7E817B; 
+  text-align: center; 
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .montarpc {
+    grid-template-columns: 1fr;
+  }
+}
+
+.montarpc-wrapper button {
+  display: block;         
+  margin: 20px auto 0 auto; 
+  color: #fff;
+  text-align: center;
+  background-color: #01737C;
+  border: none; 
+  padding: 10px 20px; 
+  font-weight: bold;
+  cursor: pointer;  
+  border-style: ridge;
+  border-color: #01737C;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(43, 143, 190, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px 6px rgba(43, 143, 190, 0.4);
+    transform: scale(1.03);
+  }
+}
+
+
 
 header { 
    
     
-    border-bottom: 1px solid #ccc; 
-    background-color: #2b8fbe;
+    border-bottom: 1px solid #0A0E14; 
+    background-color: #01737C;
     padding: 20px 0;
     
 }
@@ -38,8 +162,11 @@ header nav {
 
 header a,
 header a:visited {
-  color: #fff;
-  text-decoration: none;
+  color: rgb(240, 144, 24); 
+  font-weight: bold; 
+  font-size: larger; 
+ text-decoration: wavy; 
+  animation: neon-pulse 2s ease-in-out infinite alternate
 }
 
 * {
@@ -48,59 +175,35 @@ header a:visited {
   box-sizing: border-box;
 }  
 
-.hero { 
-    color: #080808;
-    justify-content: center;
-    text-align: center; 
-    font-family: 'Old Standard TT', serif; 
-    font-weight: bold;
-    margin-top: 50px; 
-    font-size: 32px; 
-    max-width: 500px; 
-    margin-left: auto;
-    margin-right: auto;
-} 
-.hero p { 
-    font-size: 20px; 
-    margin-top: 20px; 
-    text-align: center; 
-    font-family: 'Old Standard TT', serif;  
-    font-weight: normal;  
-    
-    margin-bottom: 50px; 
-    
-} 
 
-.montarpc button { 
-    display: block;         
-    margin: 20px auto 0 auto; 
-    
-    text-align: center;
-    background-color: #2b8fbe; 
-    color: #fff; 
-    border: none; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    cursor: pointer; 
-} 
 
+
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
 
 ul li {
-    list-style: none; 
-    padding: 10px; 
-    margin: 10px; 
-    border-bottom: 1px solid #ccc;  
-    border-top: 1px solid #ccc; 
-    border-left: 1px solid #ccc; 
-    border-right: 1px solid #ccc; 
-
-} 
+  list-style: none;
+  padding: 14px;
+  margin: 0;
+  border: 1px solid #1f2733;
+  border-radius: 10px;
+  background-color: #10151d;
+  transition: background-color 0.2s ease, transform 0.15s ease; 
+  color: #fff;
+}
 
 ul li:hover {
-    background-color: #aad4e79a; 
-    cursor: pointer;           
-    transition: background-color 0.2s ease; 
-} 
+  background-color: #1a2432;
+  cursor: pointer;
+  transform: translateY(-2px);
+}
 
 .item-card {
   display: flex;
@@ -111,11 +214,17 @@ ul li:hover {
 .item-imagem-placeholder {
   width: 48px;
   height: 48px;
-  background-color: #d9d9d9;
-  border-radius: 4px;
+  background-color: #2a3340;
+  border-radius: 6px;
   flex-shrink: 0;
-} 
+}
 
+.item-card p {
+  color: #ffffff;
+
+  margin: 0;
+  font-size: 15px;
+}
 
 
 
@@ -126,8 +235,8 @@ ul li:hover {
   top: auto;
   left: auto;
   transform: none;
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color:#07151E;
+  color: #ffffff;
   padding: 20px 24px;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
@@ -140,15 +249,15 @@ ul li:hover {
 }
 
 .resumo-selecao button:hover {
-  background-color: #dbe7ec;
+  background-color: #01737C;
 }
 
 .resumo-selecao button:last-of-type {
-  background-color: #06d9f5;
+  background-color: #dbe7ec;
 }
 
 .resumo-selecao button:last-of-type:hover {
-  background-color: #0fa6b9;
+  background-color: #01737C;
 }
 
 .status-ok {
@@ -173,7 +282,7 @@ ul li:hover {
   max-width: 700px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #ffffff;
+  background-color: #F2EBE0;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -225,13 +334,13 @@ ul li:hover {
   padding: 10px 24px;
   border-radius: 6px;
   border: none;
-  background-color: #6d7c7e;
+  background-color: #131212;
   color: white;
   cursor: pointer; 
   
 }
 .resumo-final button:hover { 
-background-color: #06d9f5;
+background-color: #373939;
 }
 .recibo {
   font-family: 'Courier New', monospace;
