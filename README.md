@@ -1,5 +1,7 @@
 # PC Builder BR
 
+![PC Builder BR - Tela inicial](paginaInicial.png)
+
 Uma plataforma em desenvolvimento inspirada no [PCPartPicker](https://pcpartpicker.com), focada no mercado brasileiro de hardware — preços em BRL, peças com estoque real em lojas nacionais e uma lógica de compatibilidade construída do zero.
 
 ## Sobre o projeto
@@ -39,6 +41,7 @@ O foco do projeto é tanto o resultado final quanto o processo: modelagem de ban
 
 ### Em andamento
 - [ ] Expandir catálogo de peças (mais modelos, mais marcas) 
+- [ ] Imagens reais dos produtos (atualmente placeholder)
 - [ ] Atualizar e manter preços sincronizados com o mercado
 - [x] Cálculo de consumo total (TDP de CPU + GPU) x wattage da fonte selecionada
 - [x] Resumo final da build com preço total somado
@@ -51,7 +54,11 @@ O foco do projeto é tanto o resultado final quanto o processo: modelagem de ban
 
 ---
 
+## Demonstração
 
+Validação de compatibilidade em tempo real durante a montagem:
+
+![Validação de compatibilidade CPU x Motherboard](pcbuilder.gif)
 
 ## Como rodar localmente
 
@@ -107,7 +114,7 @@ O schema modela as relações reais de compatibilidade de hardware:
 - **Gpu** → TDP e quantidade de memória de vídeo
 - **Ssd** → tipo de conexão (NVMe M.2, SATA M.2, SATA 2.5")
 - **Psu** → wattage e selo de eficiência
-- **Case** → gabinete (em expansão)
+- **Case** → gabinete 
 
 ---
 
