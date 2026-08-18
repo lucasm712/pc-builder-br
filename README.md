@@ -44,7 +44,7 @@ O foco do projeto é tanto o resultado final quanto o processo: modelagem de ban
 - [x] Resumo final da build com preço total somado
 - [x] Estilização completa da interface (CSS) 
 - [ ] seção de pecas com pesquisa e filtragem 
-- [ ] opção de filtragem de resultado 
+- [ ] opção de filtragem de resultado das peças
 
 ### Planejado
 - [ ] Comparação de preços entre lojas (Kabum, Pichau, Terabyte, Amazon)
