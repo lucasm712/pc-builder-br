@@ -27,7 +27,7 @@ function GpuList({ gpuSelecionada, onSelecionar }) {
      style={{ cursor: 'pointer', fontWeight: selecionada ? 'bold' : 'normal' }} 
      > 
       <div className="item-card">
-      <div className="item-imagem-placeholder"></div>
+    <img src={gpu.imagemUrl} alt={gpu.nome} />
       {gpu.nome} - R$ {gpu.preco}
    </div>
     </li>     

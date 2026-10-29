@@ -24,7 +24,8 @@ function RamList({ ramsSelecionadas, onAdicionar, onRemover, placaSelecionada })
         return (
             <li key={ram.id}>
                <div className="item-card">
-               <div className="item-imagem-placeholder"></div>
+               
+              <img src={ram.imagemUrl} alt={ram.nome} />
                
                 {ram.nome} - {ram.tipo} - {ram.tamanho}GB - {ram.pentes}x - R$ {ram.preco}
                 <button onClick={() => onRemover(ram)} disabled={quantidade === 0}> - </button>

@@ -364,3 +364,10 @@ background-color: #373939;
   text-align: right;
 }  
 
+.item-card img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-right: 8px;
+}

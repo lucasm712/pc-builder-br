@@ -27,7 +27,7 @@ function PsuList({ psuSelecionado, onSelecionar }) {
      style={{ cursor: 'pointer', fontWeight: selecionado ? 'bold' : 'normal' }} 
      > 
       <div className="item-card">
-     <div className="item-imagem-placeholder"></div>
+     <img src={psu.imagemUrl} alt={psu.nome} />
       {psu.nome} - R$ {psu.preco} 
       </div>
     </li>     

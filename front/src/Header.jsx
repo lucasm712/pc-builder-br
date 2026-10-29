@@ -1,13 +1,15 @@
 function Header() {
-  return(
-    <header> 
-        <nav>
-    <h1>
+    
+       return(
+    
+      <header>
+      <h1>
       <a href="/">PC BUILDER BR</a>
-    </h1>
-    </nav> 
-    </header>
+      </h1>
+</header>
   )
+
 } 
+
 
 export default Header

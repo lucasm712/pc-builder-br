@@ -26,11 +26,10 @@ function MotherboardList({ placaSelecionada, onSelecionar }) {
      onClick={() => onSelecionar(motherboard)}
      style={{ cursor: 'pointer', fontWeight: selecionada ? 'bold' : 'normal' }} 
      > 
-     <div className="item-card">
-     <div className="item-imagem-placeholder"></div>
-     
-      {motherboard.nome} - R$ {motherboard.preco} 
-      </div>
+    <div className="item-card">
+    <img src={motherboard.imagemUrl} alt={motherboard.nome} />
+      {motherboard.nome} - R$ {motherboard.preco}
+   </div>
     </li>     
    } 
 

@@ -27,7 +27,8 @@ function CpuList({ cpuSelecionada, onSelecionar }) {
      style={{ cursor: 'pointer', fontWeight: selecionada ? 'bold' : 'normal' }} 
      > 
     <div className="item-card">
-    <div className="item-imagem-placeholder"></div>
+    <img src={cpu.imagemUrl} alt={cpu.nome} />
+    
 
       {cpu.nome} - R$ {cpu.preco} 
       </div>

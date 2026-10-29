@@ -21,7 +21,8 @@ model Cpu {
   createdAt         DateTime @default(now())
   wtts              Int?
   graficoIntegrado Boolean? @map("grafico_integrado")
-  socket            Socket   @relation(fields: [socketId], references: [id])
+  socket            Socket   @relation(fields: [socketId], references: [id]) 
+  imagemUrl         String?
 }
 
 model Motherboard {
@@ -34,6 +35,7 @@ model Motherboard {
   createdAt        DateTime @default(now())
   Maximo_de_ram    Int?     @map("Maximo_de_ram")
   slots_de_memoria Int?     @map("slots_de_memoria")
+  imagemUrl         String?
   socket           Socket   @relation(fields: [socketId], references: [id])
 }
 
@@ -45,6 +47,7 @@ model Ram {
   tipo      TipoRam 
   tamanho   Int 
   pentes    Int      @default(1) 
+  imagemUrl         String?
 }
 
 model Gpu {
@@ -53,7 +56,8 @@ model Gpu {
   tdp       Int
   memoria   Int 
   preco     Decimal?
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) 
+  imagemUrl String?
 }
 
 enum TipoRam {
@@ -78,6 +82,7 @@ model Ssd {
    nome    String   @unique
    tamanho Int 
    tipoSsd TipoSsd
+   imagemUrl         String?
    preco   Decimal?
   createdAt DateTime @default(now())
 } 
@@ -92,7 +97,8 @@ model Psu {
    nome    String @unique
    wtts    Int 
    seloEficiencia SeloEficiencia
-   preco   Decimal?
+   preco   Decimal? 
+   imagemUrl         String?
   createdAt DateTime @default(now())
 } 
 
