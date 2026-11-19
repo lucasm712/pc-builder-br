@@ -616,4 +616,22 @@ background-color: #373939;
 .build-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(36, 48, 71, 0.35);
+} 
+
+@media (max-width: 768px) {
+  main > ul,
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+
+  
+  main > ul > li img,
+  .catalogo-grid > .catalogo-item img {
+    height: 120px;
+    object-fit: contain;
+    padding: 8px;
+  }
 }
