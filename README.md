@@ -38,17 +38,17 @@ O foco do projeto é tanto o resultado final quanto o processo: modelagem de ban
 - [x] Validação de capacidade máxima de RAM suportada pela placa-mãe
 - [x] Validação de slots de memória disponíveis (considerando quantidade de pentes já selecionados)
 - [x] Seed de banco de dados com dados reais de mercado (CPUs Intel/AMD, placas-mãe por socket/chipset, RAM DDR4/DDR5, GPUs, SSDs SATA/NVMe)
-
-### Em andamento
-- [ ] detalhes e especificações de cada peça 
-- [ ] Expandir catálogo de peças (mais modelos, mais marcas) 
-- [x] Imagens reais dos produtos (atualmente placeholder)
-- [ ] Atualizar e manter preços sincronizados com o mercado
 - [x] Cálculo de consumo total (TDP de CPU + GPU) x wattage da fonte selecionada
 - [x] Resumo final da build com preço total somado
 - [x] Estilização completa da interface (CSS) 
 - [x] seção de pecas com pesquisa e filtragem 
-- [x] opção de filtragem de resultado das peças
+- [x] opção de filtragem de resultado das peças 
+- [x] Imagens reais das peças
+### Em andamento
+- [ ] detalhes e especificações de cada peça 
+- [ ] Expandir catálogo de peças (completar a database) 
+- [ ] Atualizar e manter preços sincronizados com o mercado
+
 
 ### Planejado
 - [ ] Comparação de preços entre as lojas (Kabum, Pichau, Terabyte, Amazon)
