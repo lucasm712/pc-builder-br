@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-
+import { API_URL } from './api.js'
 function GpuList({ gpuSelecionada, onSelecionar }) { 
     const [gpus, setGpus] = useState([]); 
     useEffect(function() { 
         async function carregarGpus() { 
             try { 
-                const response = await fetch('http://localhost:3000/api/gpus');
+                const response = await fetch(`${API_URL}/api/gpus`);
                 const data = await response.json(); 
                 setGpus(data);
             } 
@@ -17,22 +17,25 @@ function GpuList({ gpuSelecionada, onSelecionar }) {
 }, []);
 
 
-   function renderGpus(gpu) { 
- const selecionada = gpuSelecionada?.id === gpu.id;
+function renderGpus(gpu) {
+  const selecionada = gpuSelecionada?.id === gpu.id;
 
-    return <li 
-    
-    key={gpu.id} 
-     onClick={() => onSelecionar(gpu)}
-     style={{ cursor: 'pointer', fontWeight: selecionada ? 'bold' : 'normal' }} 
-     > 
+  return (
+    <li
+      key={gpu.id}
+      className={selecionada ? 'selecionada' : ''}
+      onClick={() => onSelecionar(gpu)}
+    >
       <div className="item-card">
-    <img src={gpu.imagemUrl} alt={gpu.nome} />
-      {gpu.nome} - R$ {gpu.preco}
-   </div>
-    </li>     
-   } 
-
+        <img src={gpu.imagemUrl} alt={gpu.nome} />
+        <div className="item-info">
+          <span className="item-nome">{gpu.nome}</span>
+          <span className="item-preco">R$ {gpu.preco}</span>
+        </div>
+      </div>
+    </li>
+  );
+}
    return ( 
   <ul>
   {gpus.map(renderGpus)}

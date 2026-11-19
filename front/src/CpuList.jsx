@@ -1,44 +1,42 @@
 import { useState, useEffect } from 'react';
+import { API_URL } from './api.js'
+function CpuList({ cpuSelecionada, onSelecionar }) {
+  const [cpus, setCpus] = useState([]);
 
-function CpuList({ cpuSelecionada, onSelecionar }) { 
-    const [cpus, setCpus] = useState([]); 
-    useEffect(function() { 
-        async function carregarCpus() { 
-            try { 
-                const response = await fetch('http://localhost:3000/api/cpus');
-                const data = await response.json(); 
-                setCpus(data);
-            } 
-        catch (error) {
-            console.error('Erro ao carregar os processadores:', error);
-        }
-    }  
-    carregarCpus(); 
-}, []);
+  useEffect(function () {
+    async function carregarCpus() {
+      try {
+        const response = await fetch(`${API_URL}/api/cpus`);
+        const data = await response.json();
+        setCpus(data);
+      } catch (error) {
+        console.error('Erro ao carregar os processadores:', error);
+      }
+    }
+    carregarCpus();
+  }, []);
 
+  function renderCpus(cpu) {
+    const selecionada = cpuSelecionada?.id === cpu.id;
 
-   function renderCpus(cpu) { 
- const selecionada = cpuSelecionada?.id === cpu.id;
+    return (
+      <li
+        key={cpu.id}
+        className={selecionada ? 'selecionada' : ''}
+        onClick={() => onSelecionar(cpu)}
+      >
+        <div className="item-card">
+          <img src={cpu.imagemUrl} alt={cpu.nome} />
+          <div className="item-info">
+            <span className="item-nome">{cpu.nome}</span>
+            <span className="item-preco">R$ {cpu.preco}</span>
+          </div>
+        </div>
+      </li>
+    );
+  }
 
-    return <li 
-    
-    key={cpu.id} 
-     onClick={() => onSelecionar(cpu)}
-     style={{ cursor: 'pointer', fontWeight: selecionada ? 'bold' : 'normal' }} 
-     > 
-    <div className="item-card">
-    <img src={cpu.imagemUrl} alt={cpu.nome} />
-    
-
-      {cpu.nome} - R$ {cpu.preco} 
-      </div>
-    </li>     
-   } 
-
-   return ( 
-  <ul>
-  {cpus.map(renderCpus)}
-   </ul> 
-   ); 
+  return <ul>{cpus.map(renderCpus)}</ul>;
 }
-   export default CpuList;
+
+export default CpuList;
